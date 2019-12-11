@@ -6,8 +6,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Assignmentone {
 
+	static ChromeDriver driver; 
+
 	public static void main(String[] args) {
-		ChromeDriver driver = new ChromeDriver();
+
+		Assignmentone Ass1 = new Assignmentone();
+
+		Ass1.LaunchBrowser();
+		Ass1.FindLead();
+		Ass1.ModifyLead();
+
+	}
+
+	public void LaunchBrowser() {
+
+		driver = new ChromeDriver();
+		
 		driver.get("http://leaftaps.com/opentaps/control/main");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -17,6 +31,9 @@ public class Assignmentone {
 		driver.findElementById("password").sendKeys("crmsfa");
 		driver.findElementByClassName("decorativeSubmit").click();
 
+	}
+
+	public void FindLead() {
 		//Click CRM/SFA link
 		driver.findElementByXPath("//*[@id=\"button\"]/a/img").click();
 
@@ -25,6 +42,12 @@ public class Assignmentone {
 
 		// Click Find Lead
 		driver.findElementByLinkText("Find Leads").click();
+
+
+
+	}
+
+	public void ModifyLead() {
 
 		// Enter First Name
 		driver.findElementByXPath("(//input[@name='firstName'])[3]").sendKeys("Umesh");
@@ -38,10 +61,11 @@ public class Assignmentone {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		// Click on first resulting Lead
 		driver.findElementByXPath("(//a[@class='linktext'])[4]").click();
-		
-		
+
+
 		// Verify the title of the page
 		String LeadTitle = driver.getTitle();
 		if(LeadTitle.contains("CRM")) {
@@ -52,9 +76,9 @@ public class Assignmentone {
 		}
 
 		// Click on Edit Button
-	//	driver.findElementByLinkText("Duplicate Lead").click();
+		//	driver.findElementByLinkText("Duplicate Lead").click();
 		driver.findElementByLinkText("Edit").click();
-		
+
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -79,7 +103,8 @@ public class Assignmentone {
 
 		// Close the browser
 		//driver.close();
-
 	}
+	
+	
 
 }
