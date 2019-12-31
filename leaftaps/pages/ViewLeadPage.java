@@ -4,7 +4,8 @@ import org.testleaf.leaftaps.BaseClass;
 
 public class ViewLeadPage extends BaseClass {
 
-	public FindLeadsPage clickFindLeads() {
+	public FindLeadsPage clickFindLeads() throws InterruptedException {
+		Thread.sleep(6000);
 		driver.findElementByLinkText("Find Leads").click();
 		return new FindLeadsPage();
 		

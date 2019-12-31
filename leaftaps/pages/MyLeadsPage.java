@@ -9,7 +9,8 @@ public class MyLeadsPage extends BaseClass {
 		return new CreateLeadPage();
 	}
 
-	public FindLeadsPage clickFindLeads() {
+	public FindLeadsPage clickFindLeads() throws InterruptedException {
+		Thread.sleep(2000);
 		driver.findElementByLinkText("Find Leads").click();
 		return new FindLeadsPage();
 	}
